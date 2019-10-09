@@ -1,0 +1,9 @@
+{
+  "name": "articleCode",
+  "version": "1.0.0",
+  "description": "api to be applied in a blog or news portal ",
+  "main": "serve.js",
+  "repository": "https://github.com/LuisCavalari/articleCode.git",
+  "author": "Luis Cavalari",
+  "license": "MIT"
+}
