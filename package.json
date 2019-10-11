@@ -19,12 +19,15 @@
     "helmet": "^3.21.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.12.1",
-    "sequelize": "^5.19.5"
+    "sequelize": "^5.19.5",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.3",    
     "factory-girl": "^5.0.4",
     "faker": "^4.1.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.3",
+    "sqlite3": "^4.1.0",
+    "supertest": "^4.0.2"
   }
 }

@@ -9,7 +9,7 @@
   },
   "test": {
     "dialect": "sqlite",
-    "storage": ""
+    "storage": "./__tests__/database.sqlite"
   },
   "production": {
     "username": "root",
