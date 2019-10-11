@@ -19,16 +19,9 @@ class UserController {
         return response.json({ user })
     }
 
-    async index(request, response) {
-
-    }
-
-    async show(request, response) {
-
-    }
 
     async destroy(request, response) {
-
+        
     }
 
     async update(request, response) {
