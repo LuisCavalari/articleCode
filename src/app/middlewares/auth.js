@@ -15,15 +15,18 @@ module.exports = (request, response, next) => {
 
     const [prefix, token] = auth
 
-    if (/^Bearer$/.test(prefix))
+    if (!/^Bearer$/.test(prefix))
         response.status(400).send({ error: 'Invalid prefix ' })
     try {
+        
         jwt.verify(token, process.env.APP_SECRET, (err, decoded) => {
             if (err) {
                 return response.status(400).send({ error: 'Invalid token' })
             }
             request.userId = decoded.id;
         })
+
+        return next()
 
 
 

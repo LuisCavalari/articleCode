@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
-
+const scheduler = require('./app/middlewares/scheduler')
 class App{
     
     constructor(){
@@ -13,6 +13,7 @@ class App{
         this.express.use(express.json())
         this.express.use(cors())
         this.express.use(helmet())        
+        this.express.use(scheduler)
         
     }
     routes(){

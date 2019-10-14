@@ -5,6 +5,7 @@ module.exports = (sequelize, dataTypes) => {
         email: dataTypes.STRING,
         password_hash: dataTypes.STRING,
         password: dataTypes.VIRTUAL,
+        admin: dataTypes.BOOLEAN,
     }, {
         hooks: {
             beforeSave: async function (user) {

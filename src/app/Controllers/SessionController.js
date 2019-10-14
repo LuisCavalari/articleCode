@@ -19,10 +19,11 @@ class SessionController {
         if (!(await user.checkPassword(password))) {
             return response.status(400).send({ error: 'Email/Password incorrect' })
         }
+        user.password_hash = undefined
 
 
 
-        const token = jwt.sign({ id: user.id }, process.env.APP_SECRET, {
+        const token = await jwt.sign({ id: user.id }, process.env.APP_SECRET, {
             expiresIn: '1d'
         })
 

@@ -3,8 +3,8 @@ module.exports = (sequelize, dataTypes) => {
         name: dataTypes.STRING(1000),
     })
     Categories.associate = function(models){
-        Categories.hasMany(models.Articles)
-        Categories.belongsTo(models.Categories)
+        Categories.hasMany(models.Articles,{ as: 'articles'})
+        Categories.belongsTo(models.Categories, { foreignKey: 'parent_id', as:'parent' })
     }
     return Categories
 }

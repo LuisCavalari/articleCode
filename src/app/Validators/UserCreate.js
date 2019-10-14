@@ -1,7 +1,7 @@
 const Yup = require('yup')
 
 module.exports = async (request, response, next) => {
-    const schema = Yup.object.shape({
+    const schema = Yup.object().shape({
         email: Yup
             .string()
             .email('Invalid email')
@@ -9,7 +9,7 @@ module.exports = async (request, response, next) => {
         password: Yup
             .string()
             .required('Please inform a password')
-            .min(10, 'Password need a minimum of 4 characters'),
+            .min(4, 'Password need a minimum of 4 characters'),
         name: Yup
             .string()
             .required('Please inform a name')
@@ -23,6 +23,6 @@ module.exports = async (request, response, next) => {
         return next()
         
     } catch (error) {
-        return response.status(400).send({ message: error.erros })
+        return response.status(400).send({ message: error.errors })
     }
 }
