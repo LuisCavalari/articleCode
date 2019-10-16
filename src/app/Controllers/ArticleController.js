@@ -42,13 +42,14 @@ class ArticleController {
             attributes: ['id', 'name', 'description', 'content', 'user_id'],
             include: [{
                 model: Users,
-                as: 'user'
+                as: 'user',
+                attributes:['id','name']
             }]
         })
         const { rows: articles, count: totalItems } = categories
         const totalPages = Math.ceil(totalItems / limit)
 
-        return response.json({ articles, totalPages, itemsPerPage })
+        return response.json({ articles, totalPages })
 
     }
 

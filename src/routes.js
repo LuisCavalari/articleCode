@@ -19,7 +19,7 @@ router.post('/session', SessionControler.store)
 
 // private routes bellow
 router.use(auth)
-
+router.get('/session', SessionControler.show)
 router.get('/static',StaticsController.index)
 
 router.get('/tree', TreeController.index)

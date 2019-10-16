@@ -15,7 +15,7 @@ class SessionController {
 
         if (!user)
             return response.status(400).send({ error: 'Email/Password incorrect' })
-        
+
         if (!(await user.checkPassword(password))) {
             return response.status(400).send({ error: 'Email/Password incorrect' })
         }
@@ -32,21 +32,26 @@ class SessionController {
 
     }
 
-    async index(request, response) {
-
-    }
 
     async show(request, response) {
+        const { userId } = request
+
+        const user = await Users.findOne({
+            where:{
+                id:userId, 
+            }
+        })
+
+
+        if(!user)
+            return response.status(400).send({ error: 'User not found' })
+
+        user.password_hash = undefined
+        
+        return response.json({ user })
 
     }
 
-    async destroy(request, response) {
-
-    }
-
-    async update(request, response) {
-
-    }
 }
 
 module.exports = new SessionController()

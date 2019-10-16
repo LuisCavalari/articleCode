@@ -2,8 +2,9 @@ const { Categories } = require('../models')
 class CategoriesController {
 
     async store(request, response) {
-        const { name, parent_id: parent } = request.body
-        const categorie = await Categories.create({
+        const { id,name, parent_id: parent } = request.body
+        const categorie = await Categories.upsert({
+            id,
             name,
             parent_id: parent,
         })
@@ -24,7 +25,7 @@ class CategoriesController {
         }
 
         const expandedCategories = categories.map(categorie => {
-            const { id, name } = categorie
+            const { id, name,parent_id } = categorie
             let path = categorie.name
             let parent = findParent(categorie.parent_id)
             while (parent) {
@@ -32,7 +33,7 @@ class CategoriesController {
                 parent = findParent(parent.parent_id)
             }
 
-            return { id, name, path }
+            return { id, name, path , parent_id}
 
         })
 
