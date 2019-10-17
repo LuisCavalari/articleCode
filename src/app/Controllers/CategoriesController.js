@@ -42,9 +42,7 @@ class CategoriesController {
 
     }
 
-    async show(request, response) {
-
-    }
+   
 
     async destroy(request, response) {
         const { id } = request.params
@@ -69,9 +67,6 @@ class CategoriesController {
 
     }
 
-    async update(request, response) {
-
-    }
 
 }
 
